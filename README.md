@@ -41,37 +41,5 @@ npm run build
 npm run start
 ```
 
-### Deploying 
-
-Make sure you are logged into the IBM Cloud using the IBM Cloud CLI and have access 
-to your development cluster.
-
-```shell
-curl -sL https://cli.cloudnativetoolkit.dev/install.sh | sh
-ibmcloud login -a cloud.ibm.com -r <region> -g <resource group>
-ibmcloud ks cluster-config --cluster <cluster-name>
-kubectl get pods
-
-```
-
-Use the Cloud Native Toolkit CLI to register the GIT Repo with CI environment 
-```shell
-oc pipeline 
-```
-
-## More Details
-
-For more details on how to use this Starter Kit Template please review the [Cloud Native Toolkit Developer Guide](https://develop.cloudnativetoolkit.dev/)
-
-## Next Steps
-
-* Learn more about augmenting your Node.js applications on IBM Cloud with the [Node Programming Guide](https://cloud.ibm.com/docs/node?topic=nodejs-getting-started).
-
-## License
-
-This sample application is licensed under the Apache License, Version 2. Separate third-party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1](https://developercertificate.org/) and the [Apache License, Version 2](https://www.apache.org/licenses/LICENSE-2.0.txt).
-
-[Apache License FAQ](https://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
-
 
 
