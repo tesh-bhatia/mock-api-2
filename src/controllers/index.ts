@@ -1,5 +1,5 @@
-import { HelloWorldController } from './hello-world';
+import { CerealController } from './cereal/cereal.controller';
 
-export * from './hello-world';
+export * from './cereal';
 
-export const controllers = [HelloWorldController];
+export const controllers = [CerealController];

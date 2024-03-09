@@ -1,5 +1,5 @@
-import { provider as helloWorldProvider } from './hello-world';
+import { provider as cerealProvdier } from './cereal';
 
-export * from './hello-world';
+export * from './cereal';
 
-export const providers = [helloWorldProvider];
+export const providers = [cerealProvdier];
