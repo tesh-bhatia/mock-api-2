@@ -18,7 +18,7 @@ describe('AppController', () => {
 
   describe('getCereals', () => {
     it('should return all the cereals', async () => {
-      const cereals = await appController.getCereals();
+      const cereals = await appController.getCereal();
       expect(cereals).toHaveLength(20);
       expect(cereals).toContainEqual(expect.objectContaining({ "flavor": "sweet", "id": "1", "manufacturer": "General Mills", "name": "Honey Nut Cheerios", "type": "corn"}));
   });

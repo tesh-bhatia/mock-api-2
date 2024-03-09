@@ -7,7 +7,7 @@ import { CerealRepoApi } from '../../data/repositories/cereal/cereal.repo.api';
 export class CerealService implements CerealApi {
   constructor(private readonly repo: CerealRepoApi) {}
 
-  async getCereals(): Promise<Cereal[]> {
+  async getCereal(): Promise<Cereal[]> {
     return await this.repo.getAllCereals();
   }
 
