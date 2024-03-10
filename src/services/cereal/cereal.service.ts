@@ -11,11 +11,11 @@ export class CerealService implements CerealApi {
     return await this.repo.getAllCereals();
   }
 
-  createCereal(cereal: any): Cereal {
-    return this.repo.createCereal(cereal);
+  async createCereal(cereal: any): Promise<Cereal> {
+    return await this.repo.createCereal(cereal);
   }
 
-  deleteCereal(id: number): void {
-    return this.repo.deleteCereal(id);
+  async deleteCereal(id: number): Promise<void> {
+    return await this.repo.deleteCereal(id);
   }
 }

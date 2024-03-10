@@ -13,33 +13,23 @@ export class CerealRepo implements CerealRepoApi {
 
     }
 
-    createCereal(cereal: any): Cereal {
+    async createCereal(cereal: any): Promise<Cereal> {
         return cereal;
     }
 
-    deleteCereal(id: number): void {
-        const cereals: Cereal[] = [];
-        fs.createReadStream('./cereals.csv')
-            .pipe(csvParser())
-            .on('data', (row) => {
-                cereals.push(row);
-            })
-            .on('end', () => {
-                // Find the cereal with the matching id and remove it
-                const index = cereals.findIndex(cereal => cereal.id === id);
-                if (index !== -1) {
-                    cereals.splice(index, 1);
-                }
-                // Write the updated cereals back to the CSV file
-                const csvWriter = csvParser();
-                fs.createWriteStream('/path/to/your/csv/file.csv')
-                    .pipe(csvWriter)
-                    .on('finish', () => {
-                        console.log('CSV file successfully updated.');
-                    });
-                csvWriter.write(cereals);
-                csvWriter.end();
-            });
+    async deleteCereal(id: number): Promise<void> {
+      const cereals = await this.parseCsv(path.join(__dirname, 'cereals.csv')) as Cereal[];
+
+      const index = cereals.findIndex(cereal => cereal.id === id);
+        if (index !== -1) {
+            cereals.splice(index, 1);
+        }
+      
+      const csvContent = cereals.reduce((csv, row) => {
+        return csv + Object.values(row).join(',') + '\n';
+      }, 'id,name,manufacturer,type,flavor\n')
+      
+      fs.writeFileSync(path.join(__dirname, 'cereals.csv'), csvContent);
     }
 
     parseCsv(filePath) {
