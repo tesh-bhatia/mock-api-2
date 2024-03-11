@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { CerealApi } from '../../services/cereal/cereal.api';
 
 @Controller()
@@ -16,7 +16,7 @@ export class CerealController {
   }
 
   @Delete('v1/cereal/:id')
-  deleteCereal(id: number) {
-    return this.service.deleteCereal(id);
+  deleteCereal(@Param('id') id: string) {
+    return this.service.deleteCereal(Number(id));
   }
 }
